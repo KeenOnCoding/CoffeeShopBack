@@ -1,10 +1,7 @@
 ﻿using CoffeeShop.Domain.Entities;
 using MediatR;
 using Optional;
-using System;
-using System.Collections.Generic;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Domain.Repositories
 {

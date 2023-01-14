@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Domain.Entities
+﻿namespace CoffeeShop.Domain.Entities
 {
     public class Cashier
     {

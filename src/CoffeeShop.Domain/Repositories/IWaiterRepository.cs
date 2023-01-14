@@ -1,8 +1,6 @@
 ﻿using CoffeeShop.Domain.Entities;
 using MediatR;
 using Optional;
-using System;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Domain.Repositories
 {

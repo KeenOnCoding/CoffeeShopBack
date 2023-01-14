@@ -1,6 +1,4 @@
 ﻿using MediatR;
-using System;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Domain.Events
 {

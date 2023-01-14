@@ -4,8 +4,6 @@ using CoffeeShop.Domain.Repositories;
 using CoffeeShop.Domain.Views;
 using CoffeeShop.Persistance.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Persistance.Repositories
 {

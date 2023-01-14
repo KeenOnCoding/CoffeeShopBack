@@ -1,8 +1,6 @@
 ﻿using CoffeeShop.Domain.Events;
 using Marten;
 using MediatR;
-using System;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business
 {

@@ -7,8 +7,6 @@ using CoffeeShop.Domain.Repositories;
 using FluentValidation;
 using MediatR;
 using Optional;
-using System;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business.AuthContext.CommandHandlers
 {

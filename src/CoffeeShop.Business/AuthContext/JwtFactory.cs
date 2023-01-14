@@ -1,10 +1,7 @@
 ﻿using CoffeeShop.Core.AuthContext;
 using CoffeeShop.Core.AuthContext.Configuration;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 
 namespace CoffeeShop.Business.AuthContext

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Core.AuthContext.Commands
+﻿namespace CoffeeShop.Core.AuthContext.Commands
 {
     public class AssignCashierToAccount : ICommand
     {

@@ -1,13 +1,8 @@
-﻿using CoffeeShop.Domain.Entities;
-using CoffeeShop.Domain.Repositories;
+﻿using CoffeeShop.Domain.Repositories;
 using CoffeeShop.Domain.Views;
 using Marten;
 using Optional;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Persistance.Repositories
 {

@@ -2,13 +2,8 @@
 using CoffeeShop.Domain;
 using CoffeeShop.Domain.Entities;
 using CoffeeShop.Domain.Repositories;
-using CoffeeShop.Persistance.EntityFramework;
-using Microsoft.EntityFrameworkCore;
 using Optional;
 using Optional.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business
 {

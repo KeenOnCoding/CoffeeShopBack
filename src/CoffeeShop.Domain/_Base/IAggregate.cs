@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Domain
+﻿namespace CoffeeShop.Domain
 {
     public interface IAggregate
     {

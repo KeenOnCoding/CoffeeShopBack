@@ -9,9 +9,6 @@ using FluentValidation;
 using MediatR;
 using Optional;
 using Optional.Async;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business.TabContext.CommandHandlers
 {

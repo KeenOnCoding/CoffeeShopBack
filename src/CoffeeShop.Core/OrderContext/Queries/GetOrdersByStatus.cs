@@ -1,6 +1,5 @@
 ﻿using CoffeeShop.Domain.Entities;
 using CoffeeShop.Domain.Views;
-using System.Collections.Generic;
 
 namespace CoffeeShop.Core.OrderContext.Queries
 {

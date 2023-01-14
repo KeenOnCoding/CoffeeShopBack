@@ -1,5 +1,4 @@
 ﻿using CoffeeShop.Domain.Views;
-using System.Collections.Generic;
 
 namespace CoffeeShop.Core.MenuContext.Commands
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Domain.Views
+﻿namespace CoffeeShop.Domain.Views
 {
     public class UserView
     {
@@ -11,6 +9,7 @@ namespace CoffeeShop.Domain.Views
 
         // TODO: This definitely seems like a bad pattern
         public Guid? ManagerId { get; set; }
+
         public Guid? WaiterId { get; set; }
         public Guid? BaristaId { get; set; }
         public Guid? CashierId { get; set; }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Domain.Events
+﻿namespace CoffeeShop.Domain.Events
 {
     public class TabClosed : IEvent
     {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Core.ManagerContext.Commands
+﻿namespace CoffeeShop.Core.ManagerContext.Commands
 {
     public class HireManager : ICommand
     {

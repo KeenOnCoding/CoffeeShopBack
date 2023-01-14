@@ -4,8 +4,6 @@ using CoffeeShop.Domain;
 using CoffeeShop.Domain.Repositories;
 using CoffeeShop.Domain.Views;
 using Optional;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business.TabContext.QueryHandlers
 {

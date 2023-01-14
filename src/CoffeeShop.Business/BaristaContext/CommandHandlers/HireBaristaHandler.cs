@@ -8,8 +8,6 @@ using FluentValidation;
 using MediatR;
 using Optional;
 using Optional.Async;
-using System;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business.BaristaContext.CommandHandlers
 {

@@ -7,12 +7,8 @@ using CoffeeShop.Domain.Repositories;
 using CoffeeShop.Domain.Views;
 using FluentValidation;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Optional;
 using Optional.Async;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business.MenuContext.CommandHandlers
 {

@@ -6,11 +6,7 @@ using CoffeeShop.Persistance.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Optional;
 using Optional.Async;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Persistance.Repositories
 {

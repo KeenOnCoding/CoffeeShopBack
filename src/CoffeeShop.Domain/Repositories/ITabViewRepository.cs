@@ -1,9 +1,6 @@
 ﻿using CoffeeShop.Domain.Views;
 using Optional;
-using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Domain.Repositories
 {

@@ -3,11 +3,7 @@ using CoffeeShop.Domain.Repositories;
 using CoffeeShop.Persistance.EntityFramework;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Persistance.Repositories
 {

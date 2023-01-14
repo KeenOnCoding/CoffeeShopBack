@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace CoffeeShop.Core.OrderContext.Commands
+﻿namespace CoffeeShop.Core.OrderContext.Commands
 {
     public class OrderToGo : ICommand
     {

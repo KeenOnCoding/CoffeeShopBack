@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Core.CashierContext.Commands
+﻿namespace CoffeeShop.Core.CashierContext.Commands
 {
     public class HireCashier : ICommand
     {

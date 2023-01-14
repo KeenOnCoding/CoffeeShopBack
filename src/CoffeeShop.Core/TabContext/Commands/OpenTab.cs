@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Core.TabContext.Commands
+﻿namespace CoffeeShop.Core.TabContext.Commands
 {
     public class OpenTab : ICommand
     {

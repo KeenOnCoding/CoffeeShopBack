@@ -5,7 +5,6 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Optional;
 using Optional.Async;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Persistance.Repositories
 {

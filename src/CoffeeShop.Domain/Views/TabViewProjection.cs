@@ -1,6 +1,5 @@
 ﻿using CoffeeShop.Domain.Events;
 using Marten.Events.Projections;
-using System;
 
 namespace CoffeeShop.Domain.Views
 {

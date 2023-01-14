@@ -7,9 +7,6 @@ using CoffeeShop.Domain.Repositories;
 using FluentValidation;
 using Optional;
 using Optional.Async;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business.TabContext.CommandHandlers
 {

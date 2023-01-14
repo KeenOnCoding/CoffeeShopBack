@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Core.BaristaContext.Commands
+﻿namespace CoffeeShop.Core.BaristaContext.Commands
 {
     public class HireBarista : ICommand
     {

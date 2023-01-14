@@ -2,7 +2,6 @@
 using CoffeeShop.Core.WaiterContext.Commands;
 using CoffeeShop.Domain.Entities;
 using CoffeeShop.Domain.Views;
-using System.Linq;
 
 namespace CoffeeShop.Core.WaiterContext
 {

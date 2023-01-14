@@ -2,9 +2,6 @@
 using CoffeeShop.Core.CashierContext.Queries;
 using CoffeeShop.Domain.Repositories;
 using CoffeeShop.Domain.Views;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business.CashierContext.QueryHandlers
 {

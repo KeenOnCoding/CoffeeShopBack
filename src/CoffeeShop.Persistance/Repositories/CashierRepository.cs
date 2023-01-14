@@ -4,8 +4,6 @@ using CoffeeShop.Persistance.EntityFramework;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Optional;
-using System;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Persistance.Repositories
 {

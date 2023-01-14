@@ -1,6 +1,5 @@
 using CoffeeShop.Persistance.EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using System.Reflection;
 
 public class Program
@@ -17,6 +16,7 @@ public class Program
 
         app.Run();
     }
+
     private static void AddServices(WebApplicationBuilder builder)
     {
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -28,6 +28,7 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
     }
+
     private static void ConfigureRequestPipeline(WebApplication app)
     {
         if (app.Environment.IsDevelopment())

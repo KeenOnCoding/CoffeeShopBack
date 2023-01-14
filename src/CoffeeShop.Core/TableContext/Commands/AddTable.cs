@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Core.TableContext.Commands
+﻿namespace CoffeeShop.Core.TableContext.Commands
 {
     public class AddTable : ICommand
     {

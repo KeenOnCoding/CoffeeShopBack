@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace CoffeeShop.Core.TabContext.Commands
+﻿namespace CoffeeShop.Core.TabContext.Commands
 {
     public class ServeMenuItems : ICommand
     {

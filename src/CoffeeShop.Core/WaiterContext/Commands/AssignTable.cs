@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Core.WaiterContext.Commands
+﻿namespace CoffeeShop.Core.WaiterContext.Commands
 {
     public class AssignTable : ICommand
     {

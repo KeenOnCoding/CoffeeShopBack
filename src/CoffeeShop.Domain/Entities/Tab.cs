@@ -1,7 +1,4 @@
 ﻿using CoffeeShop.Domain.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace CoffeeShop.Domain.Entities
 {

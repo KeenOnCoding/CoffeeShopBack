@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Core.OrderContext.Commands
+﻿namespace CoffeeShop.Core.OrderContext.Commands
 {
     public class ConfirmToGoOrder : ICommand
     {

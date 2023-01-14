@@ -6,7 +6,6 @@ namespace CoffeeShop.Domain.Views
     {
         public MenuItemView()
         {
-
         }
 
         public MenuItemView(MenuItem item)

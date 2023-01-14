@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoffeeShop.Domain.Views
+﻿namespace CoffeeShop.Domain.Views
 {
     public class CashierView
     {

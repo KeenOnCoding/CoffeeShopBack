@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Optional;
-using System;
 
 namespace CoffeeShop.Core.OrderContext.Commands
 {

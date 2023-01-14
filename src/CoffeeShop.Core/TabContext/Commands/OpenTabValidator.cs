@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using System;
 
 namespace CoffeeShop.Core.TabContext.Commands
 {

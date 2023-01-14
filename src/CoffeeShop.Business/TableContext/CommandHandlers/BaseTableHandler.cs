@@ -6,7 +6,6 @@ using CoffeeShop.Domain.Events;
 using CoffeeShop.Domain.Repositories;
 using FluentValidation;
 using Optional;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business.TableContext.CommandHandlers
 {

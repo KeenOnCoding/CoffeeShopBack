@@ -6,10 +6,6 @@ using FluentValidation;
 using MediatR;
 using Optional;
 using Optional.Async;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Business
 {

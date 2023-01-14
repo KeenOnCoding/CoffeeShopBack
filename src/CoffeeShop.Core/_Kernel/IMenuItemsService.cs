@@ -1,8 +1,6 @@
 ﻿using CoffeeShop.Domain;
 using CoffeeShop.Domain.Entities;
 using Optional;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Core
 {

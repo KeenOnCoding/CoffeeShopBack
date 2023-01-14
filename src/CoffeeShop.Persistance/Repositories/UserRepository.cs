@@ -5,11 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Optional;
 using Optional.Async;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace CoffeeShop.Persistance.Repositories
 {
