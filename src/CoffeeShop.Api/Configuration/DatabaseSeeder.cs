@@ -152,10 +152,10 @@ namespace CoffeeShop.Api.Configuration
 
             await AssignWaitersToTables(_waiters, _tables);
 
-            await RegisterAccount("waiter@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.WaiterId, _waiters[0].Id.ToString()));
-            await RegisterAccount("cashier@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.CashierId, _cashiers[0].Id.ToString()));
-            await RegisterAccount("barista@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.BaristaId, _baristas[0].Id.ToString()));
-            await RegisterAccount("manager@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.ManagerId, _managers[0].Id.ToString()));
+            await RegisterAccount("waiter@coffeshop.org", "Password123$", new Claim(AuthConstants.ClaimTypes.WaiterId, _waiters[0].Id.ToString()));
+            await RegisterAccount("cashier@coffeshop.org", "Password123$", new Claim(AuthConstants.ClaimTypes.CashierId, _cashiers[0].Id.ToString()));
+            await RegisterAccount("barista@coffeshop.org", "Password123$", new Claim(AuthConstants.ClaimTypes.BaristaId, _baristas[0].Id.ToString()));
+            await RegisterAccount("manager@coffeshop.org", "Password123$", new Claim(AuthConstants.ClaimTypes.ManagerId, _managers[0].Id.ToString()));
         }
 
         private async Task AssignWaitersToTables(List<Waiter> waiters, List<Table> tables)

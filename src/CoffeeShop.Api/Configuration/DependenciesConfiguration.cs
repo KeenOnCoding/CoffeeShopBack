@@ -19,6 +19,7 @@ using Microsoft.IdentityModel.Tokens;
 using RiskFirst.Hateoas;
 using System.Reflection;
 using System.Text;
+using Weasel.Core;
 
 namespace CoffeeShop.Api.Configuration
 {
@@ -175,19 +176,20 @@ namespace CoffeeShop.Api.Configuration
 
         public static void AddMarten(this IServiceCollection services, IConfiguration configuration)
         {
-            var documentStore = DocumentStore.For(options =>
+            var documentStore = DocumentStore.For(_ =>
             {
                 var config = configuration.GetSection("EventStore");
                 var connectionString = config.GetValue<string>("ConnectionString");
                 var schemaName = config.GetValue<string>("Schema");
 
-                options.Connection(connectionString);
-                options.AutoCreateSchemaObjects = AutoCreate.All;
-                options.Events.DatabaseSchemaName = schemaName;
-                options.DatabaseSchemaName = schemaName;
+                _.Connection(connectionString);
+                _.AutoCreateSchemaObjects = AutoCreate.All;
+                _.Events.DatabaseSchemaName = schemaName;
+                _.DatabaseSchemaName = schemaName;
 
-                options.Events.InlineProjections.AggregateStreamsWith<Tab>();
-                options.Events.InlineProjections.Add(new TabViewProjection());
+                _.Projections.SelfAggregate<Tab>();
+                //_.Events.InlineProjections.AggregateStreamsWith<Tab>();
+                _.Projections.Add(new TabViewProjection());
 
                 var events = typeof(TabOpened)
                     .Assembly
@@ -195,7 +197,7 @@ namespace CoffeeShop.Api.Configuration
                     .Where(t => typeof(IEvent).IsAssignableFrom(t))
                     .ToList();
 
-                options.Events.AddEventTypes(events);
+                _.Events.AddEventTypes(events);
             });
 
             services.AddSingleton<IDocumentStore>(documentStore);
