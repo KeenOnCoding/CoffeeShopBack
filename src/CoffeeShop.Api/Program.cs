@@ -16,6 +16,8 @@ using MediatR;
 using LamarCodeGeneration.Frames;
 using CoffeeShop.Api.Hubs;
 using CoffeeShop.Domain.Repositories;
+using CoffeeShop.Domain.Entities;
+using CoffeeShop.Persistance;
 
 public class Program
 {
@@ -26,6 +28,8 @@ public class Program
 
         var app = builder.Build();
         ConfigureRequestPipeline(app);
+
+        SeedDatabase(app);
 
         app.Run();
     }
@@ -61,7 +65,6 @@ public class Program
                     AuthConstants.Policies.IsAdminOrBarista,
                     pb => pb.IsAdminOr(ctx => ctx.User.HasClaim(c => c.Type == AuthConstants.ClaimTypes.BaristaId)));
             });
-        builder.Services.AddTransient<DatabaseSeeder>();
         builder.Services.AddMarten(builder.Configuration);
         builder.Services.AddCqrs();
         builder.Services.AddMediatR();
@@ -80,10 +83,13 @@ public class Program
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
+        builder.Services.AddTransient<IDatabaseInitializer, DatabaseInitializer>();
     }
 
     private static void ConfigureRequestPipeline(WebApplication app)
     {
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
@@ -108,5 +114,24 @@ public class Program
         app.MapHub<ConfirmedOrdersHub>("/confirmedOrders");
         app.MapHub<HiredWaitersHub>("/hiredWaiters");
         app.MapHub<TableActionsHub>("/tableActions");
+    }
+    private static void SeedDatabase(WebApplication app)
+    {
+        DatabaseConfiguration.EnsureEventStoreIsCreated(app.Configuration);
+
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+
+            try
+            {
+                var databaseInitializer = services.GetRequiredService<IDatabaseInitializer>();
+                databaseInitializer.SeedDatabase().Wait();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

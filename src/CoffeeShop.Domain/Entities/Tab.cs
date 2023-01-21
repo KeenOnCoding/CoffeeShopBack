@@ -2,7 +2,7 @@
 
 namespace CoffeeShop.Domain.Entities
 {
-    public class Tab : IAggregate
+    public class Tab:IAggregate
     {
         public Tab()
         {
@@ -25,7 +25,7 @@ namespace CoffeeShop.Domain.Entities
         public TabOpened OpenTab(string customerName, string waiterName, int tableNumber) =>
             new TabOpened
             {
-                TabId = Id,
+                Id = Id,
                 CustomerName = customerName,
                 WaiterName = waiterName,
                 TableNumber = tableNumber
@@ -34,7 +34,7 @@ namespace CoffeeShop.Domain.Entities
         public TabClosed CloseTab(decimal amountPaid) =>
             new TabClosed
             {
-                TabId = Id,
+                Id = Id,
                 AmountPaid = amountPaid,
                 OrderValue = ServedItemsValue,
                 TableNumber = TableNumber,
@@ -45,21 +45,21 @@ namespace CoffeeShop.Domain.Entities
         public MenuItemsOrdered OrderMenuItems(IList<MenuItem> items) =>
             new MenuItemsOrdered
             {
-                TabId = Id,
+                Id = Id,
                 MenuItems = items
             };
 
         public MenuItemsServed ServeMenuItems(IList<MenuItem> items) =>
             new MenuItemsServed
             {
-                TabId = Id,
+                Id = Id,
                 MenuItems = items
             };
 
         public MenuItemsRejected RejectMenuItems(IList<MenuItem> items) =>
             new MenuItemsRejected
             {
-                TabId = Id,
+                Id = Id,
                 MenuItems = items
             };
 

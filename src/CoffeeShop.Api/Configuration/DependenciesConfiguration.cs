@@ -11,6 +11,7 @@ using CoffeeShop.Domain.Views;
 using CoffeeShop.Persistance.EntityFramework;
 using CoffeeShop.Persistance.Repositories;
 using Marten;
+using Marten.Events.Projections;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -187,9 +188,10 @@ namespace CoffeeShop.Api.Configuration
                 _.Events.DatabaseSchemaName = schemaName;
                 _.DatabaseSchemaName = schemaName;
 
-                _.Projections.SelfAggregate<Tab>();
+               
+                _.Projections.SelfAggregate<Tab>(ProjectionLifecycle.Inline);
                 //_.Events.InlineProjections.AggregateStreamsWith<Tab>();
-                _.Projections.Add(new TabViewProjection());
+                _.Projections.Add(new TabViewProjection(), ProjectionLifecycle.Inline);
 
                 var events = typeof(TabOpened)
                     .Assembly

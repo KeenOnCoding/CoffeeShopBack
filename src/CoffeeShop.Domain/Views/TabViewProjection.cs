@@ -1,23 +1,19 @@
-﻿using CoffeeShop.Domain.Events;
+﻿using Baseline;
+using CoffeeShop.Domain.Events;
+using Marten.Events.Aggregation;
 using Marten.Events.Projections;
 
 namespace CoffeeShop.Domain.Views
 {
-    public class TabViewProjection : MultiStreamAggregation<TabView, Guid>
+    public class TabViewProjection : SingleStreamAggregation<TabView>
     {
         public TabViewProjection()
         {
-            Identity<TabOpened>(ev => ev.TabId);
-            Identity<TabClosed>(ev => ev.TabId);
-            Identity<MenuItemsOrdered>(ev => ev.TabId);
-            Identity<MenuItemsServed>(ev => ev.TabId);
-            Identity<MenuItemsRejected>(ev => ev.TabId);
+            ProjectEvent<TabOpened>((view, @event) => view.Apply(@event));
+            ProjectEvent<TabClosed>((view, @event) => view.Apply(@event));
+            ProjectEvent<MenuItemsOrdered>((view, @event) => view.Apply(@event));
+            ProjectEvent<MenuItemsServed>((view, @event) => view.Apply(@event));
+            ProjectEvent<MenuItemsRejected>((view, @event) => view.Apply(@event));
         }
-        public void Apply(TabOpened @event, TabView view)=> view.Apply(@event);
-        public void Apply(TabClosed @event, TabView view) => view.Apply(@event);
-        public void Apply(MenuItemsOrdered @event, TabView view) => view.Apply(@event);
-        public void Apply(MenuItemsServed @event, TabView view) => view.Apply(@event);
-        public void Apply(MenuItemsRejected @event, TabView view) => view.Apply(@event);
-
     }
 }

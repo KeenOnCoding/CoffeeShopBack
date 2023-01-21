@@ -2,7 +2,7 @@
 {
     public class TabOpened : IEvent
     {
-        public Guid TabId { get; set; }
+        public Guid Id { get; set; }
 
         public string CustomerName { get; set; }
 

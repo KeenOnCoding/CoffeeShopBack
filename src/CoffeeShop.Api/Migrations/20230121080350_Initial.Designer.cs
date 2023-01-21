@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CoffeeShop.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230114082121_Initial")]
+    [Migration("20230121080350_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
