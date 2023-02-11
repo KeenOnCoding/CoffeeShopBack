@@ -32,6 +32,7 @@ public class Program
         SeedDatabase(app);
 
         app.Run();
+        //SeedDatabase(app);
     }
 
     private static void AddServices(WebApplicationBuilder builder)
@@ -39,7 +40,10 @@ public class Program
         var connstr = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new Exception();
         
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseNpgsql(connstr, x => x.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name)));
+            options.UseNpgsql(
+                 //connstr, x => x.MigrationsAssembly(typeof(ApplicationDbContext).GetTypeInfo().Assembly.GetName().Name)));
+                 builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new Exception(), 
+                 x => x.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name)));
 
         builder.Services.AddAutoMapper(typeof(MappingProfile), typeof(TabMappingProfile));
         builder.Services.AddCommonServices();
@@ -117,7 +121,7 @@ public class Program
     }
     private static void SeedDatabase(WebApplication app)
     {
-        DatabaseConfiguration.EnsureEventStoreIsCreated(app.Configuration);
+        //DatabaseConfiguration.EnsureEventStoreIsCreated(app.Configuration);
 
         using (var scope = app.Services.CreateScope())
         {
@@ -128,9 +132,9 @@ public class Program
                 var databaseInitializer = services.GetRequiredService<IDatabaseInitializer>();
                 databaseInitializer.SeedDatabase().Wait();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                //throw ex;
             }
         }
     }
