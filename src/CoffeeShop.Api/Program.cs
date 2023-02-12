@@ -1,55 +1,50 @@
-using AutoMapper;
+using CoffeeShop.Api.Configuration;
+using CoffeeShop.Api.Filters;
 using CoffeeShop.Api.Hateoas.Resources.Tab;
-using CoffeeShop.Persistance.EntityFramework;
+using CoffeeShop.Api.Hubs;
 using CoffeeShop.Core.AuthContext;
+using CoffeeShop.Core.AuthContext.Commands;
+using CoffeeShop.Core.AuthContext.Configuration;
+using CoffeeShop.Persistance;
+using CoffeeShop.Persistance.EntityFramework;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using CoffeeShop.Api.Configuration;
-using CoffeeShop.Core.AuthContext.Configuration;
-using System.Configuration;
-using CoffeeShop.Api.Filters;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Identity;
-using CoffeeShop.Core.AuthContext.Commands;
-using FluentValidation;
-using MediatR;
-using LamarCodeGeneration.Frames;
-using CoffeeShop.Api.Hubs;
-using CoffeeShop.Domain.Repositories;
-using CoffeeShop.Domain.Entities;
-using CoffeeShop.Persistance;
 
 public class Program
 {
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
         AddServices(builder);
 
         var app = builder.Build();
+
         ConfigureRequestPipeline(app);
 
         SeedDatabase(app);
 
         app.Run();
-        //SeedDatabase(app);
     }
 
     private static void AddServices(WebApplicationBuilder builder)
     {
         var connstr = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new Exception();
-        
+
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseNpgsql(
                  //connstr, x => x.MigrationsAssembly(typeof(ApplicationDbContext).GetTypeInfo().Assembly.GetName().Name)));
-                 builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new Exception(), 
+                 builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new Exception(),
                  x => x.MigrationsAssembly(typeof(Program).GetTypeInfo().Assembly.GetName().Name)));
 
         builder.Services.AddAutoMapper(typeof(MappingProfile), typeof(TabMappingProfile));
         builder.Services.AddCommonServices();
         builder.Services.AddHateoas();
 
-        builder.Services.AddJwtIdentity(builder.Configuration.GetSection(nameof(JwtConfiguration)),options =>
+        builder.Services.AddJwtIdentity(builder.Configuration.GetSection(nameof(JwtConfiguration)), options =>
             {
                 options.AddPolicy(AuthConstants.Policies.IsAdmin, pb => pb.RequireClaim(AuthConstants.ClaimTypes.IsAdmin));
 
@@ -93,7 +88,6 @@ public class Program
 
     private static void ConfigureRequestPipeline(WebApplication app)
     {
-
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
@@ -119,9 +113,10 @@ public class Program
         app.MapHub<HiredWaitersHub>("/hiredWaiters");
         app.MapHub<TableActionsHub>("/tableActions");
     }
+
     private static void SeedDatabase(WebApplication app)
     {
-        //DatabaseConfiguration.EnsureEventStoreIsCreated(app.Configuration);
+        DatabaseConfiguration.EnsureEventStoreIsCreated(app.Configuration);
 
         using (var scope = app.Services.CreateScope())
         {
@@ -131,6 +126,7 @@ public class Program
             {
                 var databaseInitializer = services.GetRequiredService<IDatabaseInitializer>();
                 databaseInitializer.SeedDatabase().Wait();
+                
             }
             catch (Exception)
             {

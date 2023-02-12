@@ -17,12 +17,10 @@
         {
             new Barista
             {
-                //Id = Guid.NewGuid(),
                 ShortName = "John"
             },
             new Barista
             {
-               // Id = Guid.NewGuid(),
                 ShortName = "James"
             }
         };
@@ -31,7 +29,6 @@
         {
             new Cashier
             {
-                //Id = Guid.NewGuid(),
                 ShortName = "Steve"
             }
         };
@@ -40,7 +37,6 @@
         {
             new Manager
             {
-               // Id = Guid.NewGuid(),
                 ShortName = "Jamie"
             }
         };
@@ -49,35 +45,30 @@
         {
             new MenuItem
             {
-                //Id = Guid.NewGuid(),
                 Description = "Coffee",
                 Number = 1,
                 Price = 1
             },
             new MenuItem
             {
-               // Id = Guid.NewGuid(),
                 Description = "Tea",
                 Number = 2,
                 Price = 1
             },
             new MenuItem
             {
-               // Id = Guid.NewGuid(),
                 Description = "Coke",
                 Number = 3,
                 Price = 2
             },
             new MenuItem
             {
-               // Id = Guid.NewGuid(),
                 Description = "Fanta",
                 Number = 4,
                 Price = 2
             },
             new MenuItem
             {
-               // Id = Guid.NewGuid(),
                 Description = "Latte",
                 Number = 5,
                 Price = 2.5m
@@ -88,22 +79,22 @@
         {
             new Table
             {
-               // Id = Guid.NewGuid(),
+
                 Number = 1
             },
             new Table
             {
-               // Id = Guid.NewGuid(),
+
                 Number = 2
             },
             new Table
             {
-              //  Id = Guid.NewGuid(),
+
                 Number = 3
             },
             new Table
             {
-               // Id = Guid.NewGuid(),
+
                 Number = 4
             }
         };
@@ -112,17 +103,17 @@
         {
             new Waiter
             {
-               // Id = Guid.NewGuid(),
+
                 ShortName = "Pete"
             },
             new Waiter
             {
-              //  Id = Guid.NewGuid(),
+
                 ShortName = "James"
             },
             new Waiter
             {
-              //  Id = Guid.NewGuid(),
+
                 ShortName = "Steve"
             }
         };
@@ -144,28 +135,21 @@
 
             if (!DatabaseIsEmpty())
                return;
-            _dbContext.MenuItems.Add(new MenuItem
-            {
-                //Id = Guid.NewGuid(),
-                Description = "Coffee",
-                Number = 1,
-                Price = 1
-            });
-            //  _dbContext.AddRange(_menuItems);
-            // _dbContext.AddRange(_cashiers);
-            //_dbContext.AddRange(_baristas);
-            // _dbContext.AddRange(_waiters);
-            // _dbContext.AddRange(_tables);
-            //_dbContext.AddRange(_managers);
+
+             _dbContext.AddRange(_menuItems);
+             _dbContext.AddRange(_baristas);
+             _dbContext.AddRange(_waiters);
+             _dbContext.AddRange(_tables);
+             _dbContext.AddRange(_managers);
 
             await _dbContext.SaveChangesAsync();
 
-            //await AssignWaitersToTables(_waiters, _tables);
+            await AssignWaitersToTables(_waiters, _tables);
 
-            //await RegisterAccount("waiter@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.WaiterId, _waiters[0].Id.ToString()));
-            //await RegisterAccount("cashier@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.CashierId, _cashiers[0].Id.ToString()));
-            //await RegisterAccount("barista@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.BaristaId, _baristas[0].Id.ToString()));
-            //await RegisterAccount("manager@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.ManagerId, _managers[0].Id.ToString()));
+            await RegisterAccount("waiter@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.WaiterId, _waiters[0].Id.ToString()));
+            await RegisterAccount("cashier@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.CashierId, _cashiers[0].Id.ToString()));
+            await RegisterAccount("barista@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.BaristaId, _baristas[0].Id.ToString()));
+            await RegisterAccount("manager@cafe.org", "Password123$", new Claim(AuthConstants.ClaimTypes.ManagerId, _managers[0].Id.ToString()));
         }
 
         private async Task AssignWaitersToTables(List<Waiter> waiters, List<Table> tables)
